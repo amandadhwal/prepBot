@@ -1,0 +1,16 @@
+1. Clerk is a library for authentication and authorization (Clerk is an authentication and user management platform for modern web applications. It provides ready-to-use components and APIs for handling sign-in, sign-up, user profiles, and access control.)
+https://dashboard.clerk.com/apps/app_2skRYg0rEQuJCVodFLkmqCZTVE9/instances/ins_2skRYfadq4tqhRHNGUbWvQCfcXa
+
+2. HyperUI for login design page (Free Open Source Tailwind CSS v4 Components)
+https://www.hyperui.dev/
+
+3. Shadcn/ui is a popular, open-source UI component library for React that focuses on flexibility and customization(like button,badge)
+https://ui.shadcn.com/docs/installation/next
+
+4. LogoIpsum is a website that provides placeholder logos for design mockups, wireframes, and UI projects.
+https://logoipsum.com/
+
+5. Drizzle ORM is a modern, lightweight, and TypeScript-first ORM for working with SQL databases. It is designed to provide full type safety, SQL-like syntax, and high performance while keeping things simple and efficient.
+https://orm.drizzle.team/docs/connect-neon
+
+6. Neon.tech is a serverless, scalable, and modern cloud PostgreSQL database. It is designed to be fast, cost-efficient, and developer-friendly, making it a great alternative to traditional PostgreSQL hosting services.
