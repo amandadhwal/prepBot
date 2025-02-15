@@ -39,6 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+<<<<<<< HEAD
 
 # clerk configuration (can include secrets)
 /.clerk/
+=======
+<<<<<<< HEAD
+=======
+
+# clerk configuration (can include secrets)
+/.clerk/
+>>>>>>> 6df2f99 (pop form complete)
+>>>>>>> 98a542c (Added AddNewInterview component and updated UI components)
