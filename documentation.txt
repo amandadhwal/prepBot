@@ -19,3 +19,8 @@ https://console.neon.tech/app/projects/raspy-sun-27581408/branches/br-odd-shadow
 7. gemini api key for generating question and answer 
 https://ai.google.dev/gemini-api/docs/quickstart?lang=node&_gl=1*zti2lz*_ga*MTc1NzA2MjA4Ni4xNzM5NjE0OTUw*_ga_P1DBVKWT6V*MTczOTYxNDk1MC4xLjEuMTczOTYxNzMwMC42MC4wLjU2OTk2Nzg1
 
+8. react web camera library
+https://www.npmjs.com/package/react-webcam
+
+9.Lucide is an open-source icon library, and the Lightbulb icon (lightbulb) is one of its available icons.
+https://lucide.dev/icons/lightbulb

@@ -15,8 +15,9 @@ import { chatSession } from "@/utils/GeminiAIModel";
 import { LoaderCircle } from "lucide-react";
 import { v4 as uuidv4 } from 'uuid';
 import { useUser } from "@clerk/nextjs";
-import { db } from "@/utils/db"; // Adjust the import path as needed
-import { MockInterview } from "@/utils/schema"; // If `MockInterview` is a table schema
+import { db } from "@/utils/db"; // Adjust the import path 
+import { MockInterview } from "@/utils/schema"; // If `MockInterview` is a table
+import { useRouter } from "next/navigation";
 
 function AddNewInterview() {
     const [openDialog, setOpenDialog] = useState(false);
@@ -25,7 +26,9 @@ function AddNewInterview() {
     const [jobExperience, setJobExperience] = useState("");
     const [loading, setLoading] = useState(false);
     const [jsonResponse, setJsonResponse] = useState([]);
+    const router = useRouter();
     const { user } = useUser();
+
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -73,6 +76,8 @@ function AddNewInterview() {
 
                 if (result) {
                     setOpenDialog(false);
+                    router.push('/dashboard/interview/'+result[0]?.mockId)
+
                 }
             } else {
                 console.log("Error: No valid AI response received.");
