@@ -24,3 +24,6 @@ https://www.npmjs.com/package/react-webcam
 
 9.Lucide is an open-source icon library, and the Lightbulb icon (lightbulb) is one of its available icons.
 https://lucide.dev/icons/lightbulb
+
+10. React Hook to transcribe microphone input into text.(convert speech into text)
+https://www.npmjs.com/package/react-hook-speech-to-text

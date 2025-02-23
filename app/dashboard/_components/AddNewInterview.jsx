@@ -76,6 +76,7 @@ function AddNewInterview() {
 
                 if (result) {
                     setOpenDialog(false);
+                    // push to next page
                     router.push('/dashboard/interview/'+result[0]?.mockId)
 
                 }

@@ -7,10 +7,11 @@ import { eq } from "drizzle-orm";
 import Webcam from "react-webcam";
 import { Lightbulb, WebcamIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 function Interview() {
-    const params = useParams(); // ✅ Unwrap params properly
-    const interviewId = params.interviewId; // ✅ Now it's safe to use
+    const params = useParams(); //Unwrap params properly
+    const interviewId = params.interviewId; //  Now it's safe to use
 
     const [interviewData, setInterviewData] = useState(null);
     const [webCamEnabled, setWebCamEnabled] = useState(false);
@@ -80,8 +81,11 @@ function Interview() {
             </div>
             
             <div className="flex justify-end items-end">
-            <Button className="bg-blue-700 w-29">Start Interview</Button>
-            </div>
+    <Link href={`/dashboard/interview/${params.interviewId}/start`}>
+        <Button className="bg-blue-700 w-32">Start Interview</Button>
+    </Link>
+</div>
+
            
 
             
