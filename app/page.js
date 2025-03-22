@@ -1,12 +1,5 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div>
-      <h1>Aman Dadhwal</h1>
-      <Button>Button</Button>    
-    </div>
-  );
+  redirect("/dashboard");
 }

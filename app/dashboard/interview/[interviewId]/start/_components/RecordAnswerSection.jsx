@@ -26,6 +26,7 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
     results,
     startSpeechToText,
     stopSpeechToText,
+    setResults,
   } = useSpeechToText
     ? useSpeechToText({
         continuous: true,
@@ -33,11 +34,16 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
       })
     : {};
 
-  useEffect(() => {
-    if (results) {
-      setUserAnswer(results.map((r) => r.transcript).join(" "));
-    }
-  }, [results]);
+    useEffect(()=>{
+      results?.map((result)=>(
+      setUserAnswer(prevAns=>prevAns+result?.transcript)
+    ))
+  },[results])
+  // useEffect(() => {
+  //   if (results) {
+  //     setUserAnswer(results.map((r) => r.transcript).join(" "));
+  //   }
+  // }, [results]);
 
   useEffect(()=>{
     if(!isRecording&&userAnswer.length>10)
@@ -120,8 +126,11 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
       if(resp)
       {
         toast('User Answer recorded successfully')
+        setUserAnswer('');
+        setResults([]);
       }
       // setUserAnswer('');
+      setResults([]);
        setLoading(false);
 
   }

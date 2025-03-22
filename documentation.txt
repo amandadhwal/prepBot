@@ -31,3 +31,11 @@ https://www.npmjs.com/package/react-hook-speech-to-text
 11.Sonner is a lightweight, opinionated toast notification library for React. It provides a simple and customizable way to display toasts in your React application.
 http://localhost:3000/dashboard/interview/6c73b7e6-694d-479a-abc1-e53b805d2b1f/start
 
+12. The Collapsible component in your code is used to show and hide interview feedback details dynamically.
+https://ui.shadcn.com/docs/components/collapsible
+
+13. Stripe it is used for payment we are going to use api id to display in screen
+https://dashboard.stripe.com/test/dashboard
+
+14. (Standard and premium plan) Pricing section Use these Tailwind CSS pricing section examples to explain your pricing model to potential customers.
+https://tailwindcss.com/plus/ui-blocks/marketing/sections/pricing

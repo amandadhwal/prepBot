@@ -38,7 +38,7 @@ function StartInterview() {
     }, [GetInterviewDetails]);
 
     return (
-    <div>
+    <div className="mb-14">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <QuestionSection 
                 mockInterviewQuestion={mockInterviewQuestion} 
