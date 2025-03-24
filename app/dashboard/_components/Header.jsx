@@ -25,7 +25,7 @@ function Header() {
             href="/dashboard/questions"
             className={`hover:text-[#3333ff] hover:font-bold transition-all cursor-pointer ${path === "/dashboard/questions" ? "text-[#3333ff] font-bold" : ""}`}
           >
-            Questions
+            Courses
           </Link>
         </li>
         <li>
@@ -37,12 +37,14 @@ function Header() {
           </Link>
         </li>
         <li>
-          <Link 
-            href="/dashboard/how"
-            className={`hover:text-[#3333ff] hover:font-bold transition-all cursor-pointer ${path === "/dashboard/how" ? "text-[#3333ff] font-bold" : ""}`}
+          <a 
+            href="https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#3333ff] hover:font-bold transition-all cursor-pointer"
           >
-            How it works
-          </Link>
+            Coding Practice
+          </a>
         </li>
       </ul>
       <UserButton />

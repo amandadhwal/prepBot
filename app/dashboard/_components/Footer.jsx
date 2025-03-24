@@ -39,8 +39,8 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard/how" className="text-gray-600 hover:text-[#3333ff] transition-all">
-                  How it works
+                <Link href="/dashboard/coding" className="text-gray-600 hover:text-[#3333ff] transition-all">
+                  Coding Practice
                 </Link>
               </li>
             </ul>
