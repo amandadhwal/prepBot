@@ -30,7 +30,7 @@ function Footer() {
               </li>
               <li>
                 <Link href="/dashboard/questions" className="text-gray-600 hover:text-[#3333ff] transition-all">
-                  Questions
+                  Courses
                 </Link>
               </li>
               <li>
@@ -39,9 +39,17 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard/coding" className="text-gray-600 hover:text-[#3333ff] transition-all">
+                {/* <Link href="http://localhost:3000/dashboard/upgradehttps://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/" className="text-gray-600 hover:text-[#3333ff] transition-all">
                   Coding Practice
-                </Link>
+                </Link> */}
+                <a 
+                   href="https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                  className="hover:text-[#3333ff] hover:font-bold transition-all cursor-pointer text-gray-600 "
+          >
+            Coding Practice
+          </a>
               </li>
             </ul>
           </div>

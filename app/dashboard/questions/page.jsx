@@ -6,7 +6,7 @@ function CoursesPage() {
   const [courses] = useState([
     { 
       id: 1, 
-      name: "React for Beginners", 
+      name: "React for Beginners (GeeksforGeeks)", 
       price: "$49", 
       description: "Learn React from scratch with hands-on projects.", 
       image: "/images/react-course.jpg", // ✅ Fix: Use string instead of JSX
@@ -14,31 +14,31 @@ function CoursesPage() {
     },
     { 
       id: 2, 
-      name: "Advanced Next.js", 
+      name: "Advanced Next.js (Udemy)", 
       price: "$79", 
       description: "Deep dive into server-side rendering, API routes, and more.", 
       image: "/images/nextjs.jpg", 
-      link: "https://www.udemy.com/course/nextjs-advanced" 
+      link: "https://www.udemy.com/courses/search/?src=ukw&q=nextjs" 
     },
     { 
       id: 3, 
-      name: "Full-Stack Development", 
+      name: "Full-Stack Development (Coursera)", 
       price: "$99", 
       description: "Master front-end and back-end development with modern tools.", 
       image: "/images/full_stack.jpeg", 
-      link: "https://www.coursera.org/specializations/full-stack-react" 
+      link: "https://www.coursera.org/learn/fullstack-web-development" 
     },
     { 
       id: 4, 
-      name: "JavaScript Mastery", 
+      name: "JavaScript Mastery (Udemy)", 
       price: "$59", 
       description: "Strengthen your JavaScript skills with real-world exercises.", 
       image: "/images/javascript-course.png", 
-      link: "https://www.udemy.com/course/javascript-mastery" 
+      link: "https://www.udemy.com/courses/search/?src=ukw&q=javascript" 
     },
     { 
       id: 5, 
-      name: "Data Structures & Algorithms", 
+      name: "Data Structures & Algorithms (GeeksforGeeks)", 
       price: "$89", 
       description: "Ace coding interviews with DSA concepts and problems.", 
       image: "/images/dsa-course.png", 
@@ -46,15 +46,15 @@ function CoursesPage() {
     },
     { 
       id: 6, 
-      name: "Python for Data Science", 
+      name: "Python for Data Science (Coursera)", 
       price: "$69", 
       description: "Learn Python and its applications in data analysis and machine learning.", 
       image: "/images/python-course.webp", 
-      link: "https://www.coursera.org/specializations/python-data-science" 
+      link: "https://www.coursera.org/search?query=python" 
     },
     { 
       id: 7, 
-      name: "Machine Learning Basics", 
+      name: "Machine Learning Basics (Udemy)", 
       price: "$109", 
       description: "Get started with machine learning concepts and algorithms.", 
       image: "/images/ml-course.jpeg", 

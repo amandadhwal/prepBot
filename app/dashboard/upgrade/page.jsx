@@ -20,8 +20,8 @@ function Upgrade() {
         />
       </div>
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-base/7 font-semibold text-indigo-600">Pricing</h2>
-        <p className="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
+        <h2 className="lg:text-6xl text-base/7 font-semibold text-indigo-600">Pricing</h2>
+        <p className="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
           Choose the right plan for you
         </p>
       </div>
