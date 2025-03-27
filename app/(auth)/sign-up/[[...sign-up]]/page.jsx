@@ -40,14 +40,14 @@ export default function SignupPage() {
           <SignUp />
         </div>
         
-        <div className="mt-6 text-center">
+        {/* <div className="mt-6 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400">
             Already have an account?{" "}
             <a href="/signin" className="text-blue-600 hover:underline dark:text-blue-500 font-medium">
               Sign in
             </a>
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   )
