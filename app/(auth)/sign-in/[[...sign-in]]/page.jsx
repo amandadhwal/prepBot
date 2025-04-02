@@ -80,7 +80,6 @@ export default function Page() {
         </p>
         </div>
         
-       
         <SignIn/>
       </div>
     </main>

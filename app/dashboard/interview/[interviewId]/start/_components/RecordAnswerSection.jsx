@@ -158,9 +158,9 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
         )}
       </Button>
 
-      {/* <Button className="bg-blue-500" onClick={() => console.log("User Answer:", userAnswer)}>
+      { <Button className="bg-blue-500" onClick={() => console.log("User Answer:", userAnswer)}>
         Show User Answer
-      </Button> */}
+      </Button> }
     </div>
   );
 }
