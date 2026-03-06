@@ -3,7 +3,7 @@ import { db } from "@/utils/db";
 import { MockInterview } from "@/utils/schema";
 import { eq } from "drizzle-orm";
 const client = new OpenAI({
-  apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY,
+  apiKey: process.env.GROQ_API_KEY,
   baseURL: "https://api.groq.com/openai/v1",
 });
 
