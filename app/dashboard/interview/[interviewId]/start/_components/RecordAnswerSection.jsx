@@ -35,26 +35,20 @@ function RecordAnswerSection({mockInterviewQuestion, activeQuestionIndex, interv
       })
     : {};
 
-  // Effect to handle speech recognition results
   useEffect(() => {
     if (results?.length > 0) {
-      // Show typing animation when new speech is detected
       setIsTyping(true);
       
-      // Update the answer with the latest transcript
       const latestResult = results[results.length - 1]?.transcript || "";
       setUserAnswer(prevAns => {
-        // Only add space if there's already content
         return prevAns ? `${prevAns} ${latestResult}` : latestResult;
       });
       
-      // Stop typing animation after a short delay
       const timer = setTimeout(() => setIsTyping(false), 500);
       return () => clearTimeout(timer);
     }
   }, [results]);
 
-  // Auto-submit if recording stops and answer is substantial
   useEffect(() => {
     if (!isRecording && userAnswer.length > 10) {
       UpdateUserAnswer();
@@ -65,7 +59,7 @@ function RecordAnswerSection({mockInterviewQuestion, activeQuestionIndex, interv
     if (isRecording) {
       stopSpeechToText();
     } else {
-      // Clear previous answer when starting a new recording
+
       setUserAnswer("");
       setResults([]);
       startSpeechToText();

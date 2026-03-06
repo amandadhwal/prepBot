@@ -7,6 +7,10 @@ function InterviewItemCard({interview}) {
 const router = useRouter();
 const onStart=()=>{
     router.push('/dashboard/interview/'+interview?.mockId);
+  
+    
+    const id  = mockid;
+
 }
 
 const onFeedbackPress=()=>{

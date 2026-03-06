@@ -11,12 +11,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { DialogDescription } from "@radix-ui/react-dialog";
-import { chatSession } from "@/utils/GeminiAIModel";
+// import { chatSession } from "@/utils/GeminiAIModel";
 import { LoaderCircle } from "lucide-react";
 import { v4 as uuidv4 } from 'uuid';
 import { useUser } from "@clerk/nextjs";
-import { db } from "@/utils/db"; // Adjust the import path 
-import { MockInterview } from "@/utils/schema"; // If `MockInterview` is a table
+import { db } from "@/utils/db";  
+import { MockInterview } from "@/utils/schema";
 import { useRouter } from "next/navigation";
 
 function AddNewInterview() {
@@ -26,26 +26,82 @@ function AddNewInterview() {
     const [jobExperience, setJobExperience] = useState("");
     const [loading, setLoading] = useState(false);
     const [jsonResponse, setJsonResponse] = useState([]);
+    const [freeLimitReached, setFreeLimitReached] = useState(false); 
     const router = useRouter();
     const { user } = useUser();
 
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        if (loading) return;
         setLoading(true);
 
-        alert(`Position: ${jobPosition}\nDescription: ${jobDesc}\nExperience: ${jobExperience} years`);
+        // alert(`Position: ${jobPosition}\nDescription: ${jobDesc}\nExperience: ${jobExperience} years`);
 
-        const inputPrompt = `Job Position: ${jobPosition}, Job Description: ${jobDesc}, Years of Experience: ${jobExperience}. Based on this information, generate ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} interview questions along with their answers in JSON format. Provide a JSON object with 'question' and 'answer' fields.`;
-
+        const inputPrompt = `
+        You are an AI interview generator.
+        
+        Job Position: ${jobPosition}
+        Job Description: ${jobDesc}
+        Years of Experience: ${jobExperience}
+        
+        Generate ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} interview questions with answers.
+        
+        IMPORTANT RULES:
+        - Return ONLY valid JSON
+        - Do NOT include explanation
+        - Do NOT include markdown
+        - Response must be an array
+        
+        Format example:
+        
+        [
+          {
+            "question": "What is React?",
+            "answer": "React is a JavaScript library for building user interfaces."
+          },
+          {
+            "question": "What is Node.js?",
+            "answer": "Node.js is a runtime environment that allows JavaScript to run on the server."
+          }
+        ]
+        `;
         try {
-            const result = await chatSession.sendMessage(inputPrompt);
-            let rawResponse = await result.response.text();
+            // const result = await chatSession.sendMessage(inputPrompt);
+            // console.log("AI Response received:", result);
+            // let rawResponse = await result.response.text();
 
-            // Debug: Log raw AI response before processing
+            const res = await fetch("/api/generate-interview", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  prompt: inputPrompt,
+                  userEmail: user?.primaryEmailAddress?.emailAddress
+                })
+              });
+              
+              const data = await res.json();
+              
+              if (!data.success) {
+                if (data.error.includes("Free limit reached")) {
+                  setFreeLimitReached(true); // trigger popup
+                  setLoading(false);
+                  return; // stop execution
+                } else {
+                  alert(data.error);
+                  setLoading(false);
+                  return;
+                }
+              }
+              
+              let rawResponse = data.data;
+              console.log(rawResponse);
+            
             console.log("Raw AI Response:", rawResponse);
 
-            // Remove potential markdown formatting (```json ... ```)
+          
             rawResponse = rawResponse.replace(/```json|```/g, "").trim();
 
             let parsedJsonResponse;
@@ -61,10 +117,10 @@ function AddNewInterview() {
 
             setJsonResponse(parsedJsonResponse);
 
-            if (parsedJsonResponse) {
+            if (Array.isArray(parsedJsonResponse)) {
                 const result = await db.insert(MockInterview).values({
                     mockId: uuidv4(),
-                    jsonMockResp: JSON.stringify(parsedJsonResponse), // Store as string
+                    jsonMockResp: JSON.stringify(parsedJsonResponse), 
                     jobPosition,
                     jobDesc,
                     jobExperience,
@@ -85,6 +141,11 @@ function AddNewInterview() {
             }
         } catch (error) {
             console.error("Error in AI request:", error);
+            if (error.message && error.message.includes("429")) {
+                alert("We're currently receiving high traffic! Please wait a moment and try again.");
+            } else {
+                alert("Something went wrong. Please check your connection or try a shorter prompt.");
+            }
         } finally {
             setLoading(false);
         }
@@ -168,6 +229,25 @@ function AddNewInterview() {
                     </form>
                 </DialogContent>
             </Dialog>
+            
+            {freeLimitReached && (
+  <Dialog open={freeLimitReached} onOpenChange={setFreeLimitReached}>
+    <DialogContent className="max-w-md">
+      <DialogHeader>
+        <DialogTitle className="font-bold text-xl">
+          Free Limit Reached
+        </DialogTitle>
+      </DialogHeader>
+      <div className="mt-4 text-gray-700">
+        You have reached the free limit of 5 interviews free tier. 
+        Upgrade your plan to continue creating more interviews.
+      </div>
+      <div className="flex justify-end mt-6">
+        <Button onClick={() => setFreeLimitReached(false)}>Close</Button>
+      </div>
+    </DialogContent>
+  </Dialog>
+)}
         </div>
     );
 }

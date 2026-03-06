@@ -20,9 +20,8 @@ function Interview() {
         if (interviewId) {
             GetInterviewDetails();
         }
-    }, [interviewId]); // ✅ Depend on interviewId
+    }, [interviewId]);
 
-    // Fetch interview details by mockId
     const GetInterviewDetails = async () => {
         const result = await db
             .select()
@@ -77,7 +76,6 @@ function Interview() {
                     </>
                 )}
             </div>
-
             </div>
             
             <div className="flex justify-end items-end">

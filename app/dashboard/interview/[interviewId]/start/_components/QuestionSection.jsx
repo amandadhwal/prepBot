@@ -9,7 +9,7 @@ import { Mic, Lightbulb, Volume2 } from "lucide-react";
 import { toast } from "sonner";
 import classNames from "classnames";
 
-// Import useSpeechToText dynamically (only in the browser)
+
 const useSpeechToText = typeof window !== "undefined" ? require("react-hook-speech-to-text").default : null;
 
 function RecordAnswerSection({ mockInterviewQuestion = [], activeQuestionIndex }) {

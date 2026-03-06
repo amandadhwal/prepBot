@@ -42,7 +42,6 @@ function Feedback() {
       console.log("Feedback Data:", result);
       setFeedbackList(result);
 
-      // Calculate the overall rating dynamically
       const validRatings = result
         .map((item) => Number(item.rating))
         .filter((rating) => !isNaN(rating) && rating >= 0);
@@ -81,7 +80,7 @@ function Feedback() {
       <h2 className="text-3xl font-bold text-green-500">Congratulations!</h2>
       <h2 className="font-bold text-2xl">Here is your interview feedback</h2>
       <h2 className="text-blue-900 text-lg my-3">
-        Your overall interview rating: <strong>{overallRating}/10</strong>
+        Your overall interview rating: <strong>{overallRating}/5</strong>
       </h2>
       <h2 className="text-sm text-gray-500">
         Find below the interview questions with correct answers, your answers, and feedback for improvement.
